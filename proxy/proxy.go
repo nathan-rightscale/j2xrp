@@ -42,6 +42,7 @@ func (t *transport) RoundTrip(req *http.Request) (resp *http.Response, err error
 		log.Error(err)
 	}
 	log.Info(string(responseDump))
+	log.Info(string(resp.Header))
 
 	return resp, nil
 }
