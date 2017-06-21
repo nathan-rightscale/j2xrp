@@ -38,11 +38,12 @@ func (t *transport) RoundTrip(req *http.Request) (resp *http.Response, err error
 
 	// dump the egress response
 	responseDump, err := httputil.DumpResponse(resp, true)
+	requestDump, err := httputil.DumpRequest(req, true)
 	if err != nil {
 		log.Error(err)
 	}
 	log.Info(string(responseDump))
-	log.Info(string(resp.Header))
+	log.Info(string(requestDump))
 
 	return resp, nil
 }
