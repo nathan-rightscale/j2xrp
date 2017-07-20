@@ -1,0 +1,12 @@
+pipeline:
+  binary:
+    image: golang
+    commands:
+      - curl https://glide.sh/get | sh
+      # build the static binary, needed for docker
+      - make static
+  docker:
+    image: plugins/docker
+    repo: flaccid/j2xrp
+    username: flaccid
+    secrets: [ docker_password ]
